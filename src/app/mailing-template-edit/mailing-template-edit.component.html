@@ -1,0 +1,43 @@
+<form *ngIf="!isLoading" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item style="margin-bottom: 0">
+    <nz-form-control>
+      <nz-input-group>
+        <div nz-col nzSpan="8">
+          <input formControlName="title" nz-input placeholder="Titel" style="
+          background: transparent;
+          border: none;
+          outline: none;
+          font-size: 22px;
+        "/>
+        </div>
+        <div nz-col nzSpan="16" nzPush="14">
+          <button nz-button nzType="primary" [disabled]="!validateForm.valid">Opslaan</button>
+        </div>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="margin-bottom: 0">
+    <nz-form-control nzSpan="12">
+      <nz-input-group>
+        <textarea formControlName="description"  nz-input placeholder="Beschrijving" nzAutosize style="
+          background: transparent;
+          border: none;
+          outline: none;
+          resize: none;">
+        </textarea>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="margin-bottom: 12px">
+    <nz-form-control nzSpan="8">
+      <nz-input-group>
+        <input formControlName="subject"  nz-input placeholder="Onderwerp" style="
+          background: transparent;
+          border: none;
+          outline: none;
+          resize: none;">
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <ckeditor [editor]="editor" formControlName="html" data="<p>Hello, world!</p>"></ckeditor>
+</form>

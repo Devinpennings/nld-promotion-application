@@ -1,0 +1,15 @@
+<nz-list
+  [nzDataSource]="availableTriggers"
+  [nzItemLayout]="'horizontal'"
+  [nzLoading]="isLoading"
+  [nzRenderItem]="trigger"
+>
+  <ng-template #trigger let-item>
+    <nz-list-item>
+      <nz-list-item-meta
+        [nzTitle]="item.title"
+        [nzDescription]="item.description">
+      </nz-list-item-meta>
+    </nz-list-item>
+  </ng-template>
+</nz-list>

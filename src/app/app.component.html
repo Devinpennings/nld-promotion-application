@@ -1,0 +1,34 @@
+<nz-layout style="min-height: 100vh;">
+  <nz-sider style="background:#fff">
+    <div class="logo"></div>
+    <ul nz-menu [nzTheme]="'light'"  [nzMode]="'inline'" >
+      <li nz-submenu>
+        <span title><i nz-icon type="mail"></i><span class="nav-text">Mailing</span></span>
+        <ul>
+          <li routerLink="/mailing/subscribers" nz-menu-item>Abonnees</li>
+          <li routerLink="/mailing/send" nz-menu-item>Versturen</li>
+          <li routerLink="/mailing/templates" nz-menu-item>Templates</li>
+        </ul>
+      </li>
+      <li routerLink="/triggers" nz-menu-item >
+        <span title><i nz-icon type="import"></i><span class="nav-text">Triggers</span></span>
+      </li>
+      <li routerLink="/actions" nz-menu-item>
+        <span title><i nz-icon type="export"></i><span class="nav-text">Acties</span></span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-content style="margin:0 16px;">
+      <nz-breadcrumb style="margin:16px 0;">
+        <nz-breadcrumb-item *ngFor="let breadcrumb of breadcrumbs">
+          {{breadcrumb}}
+        </nz-breadcrumb-item>
+      </nz-breadcrumb>
+      <div style="padding:24px; background: #fff; min-height: 360px;">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer style="text-align: center;">Next Level Dining | Promotion Dashboard</nz-footer>
+  </nz-layout>
+</nz-layout>

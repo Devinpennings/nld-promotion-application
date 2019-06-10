@@ -1,0 +1,25 @@
+<div nz-row nzType="flex" nzJustify="end">
+  <div nz-col>
+    <button nz-button nzType="primary" routerLink="/mailing/templates/new">Aanmaken</button>
+  </div>
+</div>
+
+<nz-list
+  [nzDataSource]="templates"
+  [nzItemLayout]="'horizontal'"
+  [nzLoading]="isLoading"
+  [nzRenderItem]="template"
+>
+  <ng-template #template let-item>
+    <nz-list-item
+      [nzActions]="[editAction]"
+    >
+      <ng-template #editAction><a [routerLink]="'/mailing/templates/' + item.id">bewerken</a></ng-template>
+      <nz-list-item-meta
+        [nzTitle]="item.title"
+        [nzDescription]="item.description">
+      </nz-list-item-meta>
+    </nz-list-item>
+  </ng-template>
+</nz-list>
+
