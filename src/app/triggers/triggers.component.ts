@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Trigger} from '../../model/trigger';
+import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-triggers',
@@ -11,21 +13,18 @@ export class TriggersComponent implements OnInit {
   private availableTriggers: Trigger[] = [];
   private isLoading: boolean;
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
-    this.availableTriggers = [
-      {
-        id: '1',
-        title: 'Betaling geslaagd',
-        description: 'Deze trigger wordt uitgevoerd wanneer een betaling geslaagd is.'
-      },
-      {
-        id: '2',
-        title: 'Aanmelding nieuwsbrief',
-        description: 'Deze trigger wordt uitgevoerd wanneer er een nieuwe aanmelding op de nieuwwsbrief plaatsvind.'
-      },
-    ];
+    this.isLoading = true;
+    this.http.get<Trigger[]>(environment.api + '/triggers').subscribe(result => {
+      setTimeout(() => {
+        this.availableTriggers = result;
+        this.isLoading = false;
+      }, 1000);
+    });
   }
 
 }

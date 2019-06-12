@@ -1,15 +1,19 @@
 <nz-list
   [nzDataSource]="actions"
   [nzItemLayout]="'horizontal'"
-  [nzLoading]="isLoading"
   [nzRenderItem]="action"
+  [nzLoading]="isLoading"
 >
   <ng-template #action let-item>
     <nz-list-item>
       <nz-list-item-meta
-        [nzTitle]="item.title"
+        [nzTitle]="title"
         [nzDescription]="item.description">
+        <ng-template #title>
+          {{item.title}} <nz-tag *ngIf="item.soon">Coming soon</nz-tag>
+        </ng-template>
       </nz-list-item-meta>
     </nz-list-item>
   </ng-template>
 </nz-list>
+

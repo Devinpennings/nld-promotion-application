@@ -6,6 +6,7 @@ import {MailingSendComponent} from './mailing-send/mailing-send.component';
 import {TriggersComponent} from './triggers/triggers.component';
 import {ActionsComponent} from './actions/actions.component';
 import {MailingTemplateEditComponent} from './mailing-template-edit/mailing-template-edit.component';
+import {TriggerDetailComponent} from "./trigger-detail/trigger-detail.component";
 
 const routes: Routes = [
   { path: '' , redirectTo: 'mailing/subscribers', pathMatch: 'full' },
@@ -21,7 +22,10 @@ const routes: Routes = [
       title: 'Mailing'
     }
   },
-  { path: 'triggers', component : TriggersComponent, data: { title: 'Triggers'}},
+  { path: 'triggers', data: { title: 'Triggers'}, children: [
+      { path: '',  component : TriggersComponent, },
+      { path: ':id', component: TriggerDetailComponent, data: { title: 'Details'}}
+    ]},
   { path: 'actions', component : ActionsComponent, data: { title: 'Acties'}},
 ];
 @NgModule({

@@ -16,6 +16,7 @@ import { TriggersComponent } from './triggers/triggers.component';
 import { ActionsComponent } from './actions/actions.component';
 import { MailingTemplateEditComponent } from './mailing-template-edit/mailing-template-edit.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import { TriggerDetailComponent } from './trigger-detail/trigger-detail.component';
 
 registerLocaleData(en);
 
@@ -27,7 +28,8 @@ registerLocaleData(en);
     MailingSendComponent,
     TriggersComponent,
     ActionsComponent,
-    MailingTemplateEditComponent
+    MailingTemplateEditComponent,
+    TriggerDetailComponent
   ],
   imports: [
     BrowserModule,

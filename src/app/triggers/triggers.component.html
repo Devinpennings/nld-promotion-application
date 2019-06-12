@@ -5,7 +5,10 @@
   [nzRenderItem]="trigger"
 >
   <ng-template #trigger let-item>
-    <nz-list-item>
+    <ng-template #editAction><a [routerLink]="'/triggers/' + item.id">details</a></ng-template>
+    <nz-list-item
+      [nzActions]="[editAction]"
+    >
       <nz-list-item-meta
         [nzTitle]="item.title"
         [nzDescription]="item.description">

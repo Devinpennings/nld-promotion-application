@@ -21,9 +21,11 @@ export class MailingTemplatesComponent implements OnInit {
 
     this.isLoading = true;
     this.http.get<Template[]>(environment.api + '/mail/templates').subscribe(result => {
-      this.templates = result;
+      setTimeout(() => {
+        this.templates = result;
+        this.isLoading = false;
+      }, 1000);
     });
-    this.isLoading = false;
 
   }
 

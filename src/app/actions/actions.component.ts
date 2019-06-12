@@ -10,16 +10,30 @@ export class ActionsComponent implements OnInit {
   private actions: Action[] = [];
   private isLoading: boolean;
 
-  constructor() { }
+  constructor() {
+    this.isLoading = true;
+  }
 
   ngOnInit() {
-    this.actions = [
-      {
-        id: '1',
-        title: 'Mail versturen',
-        description: 'Met deze actie kan een mail verzonden worden.'
-      },
-    ];
+    setTimeout(() => {
+      this.actions = [
+        {
+          id: '1',
+          title: 'Mail versturen',
+          description: 'Met deze actie kan een mail verzonden worden.',
+          type: 'mailing'
+        },
+        {
+          id: '2',
+          title: 'SMS vesturen',
+          description: 'Met deze actie kan een sms verzonden worden.',
+          type: 'texting',
+          soon: true
+        },
+      ];
+      this.isLoading = false;
+    }, 1000);
+
   }
 
 }

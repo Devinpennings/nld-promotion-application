@@ -16,8 +16,8 @@
     >
       <ng-template #editAction><a [routerLink]="'/mailing/templates/' + item.id">bewerken</a></ng-template>
       <nz-list-item-meta
-        [nzTitle]="item.title"
-        [nzDescription]="item.description">
+        [nzTitle]="item.title | titlecase"
+        [nzDescription]="item.description | titlecase">
       </nz-list-item-meta>
     </nz-list-item>
   </ng-template>

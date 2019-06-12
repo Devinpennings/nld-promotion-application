@@ -1,3 +1,7 @@
+<div *ngIf="isLoading" class="center">
+  <nz-spin nzSimple></nz-spin>
+</div>
+
 <form *ngIf="!isLoading" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
   <nz-form-item style="margin-bottom: 0">
     <nz-form-control>
@@ -10,8 +14,10 @@
           font-size: 22px;
         "/>
         </div>
-        <div nz-col nzSpan="16" nzPush="14">
-          <button nz-button nzType="primary" [disabled]="!validateForm.valid">Opslaan</button>
+        <div nz-col nzSpan="16">
+          <div nz-row nzType="flex" nzJustify="end">
+            <button nz-button nzType="primary" [nzLoading]="isSubmitting" [disabled]="!validateForm.valid">Opslaan</button>
+          </div>
         </div>
       </nz-input-group>
     </nz-form-control>
