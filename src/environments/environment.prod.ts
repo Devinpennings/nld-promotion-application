@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  api: 'http://localhost:8080/mail_service/api'
+  api: 'https://mail.pulr.tk/mail-service-1.0/api'
 };
+
