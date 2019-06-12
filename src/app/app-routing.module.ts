@@ -9,7 +9,7 @@ import {MailingTemplateEditComponent} from './mailing-template-edit/mailing-temp
 import {TriggerDetailComponent} from "./trigger-detail/trigger-detail.component";
 
 const routes: Routes = [
-  { path: '' , redirectTo: 'mailing/subscribers', pathMatch: 'full' },
+  { path: '' , redirectTo: 'actions', pathMatch: 'full' },
   { path: 'mailing', children: [
       { path: 'subscribers' , component : MailingSubscribersComponent, data: { title: 'Abonnees'} },
       { path: 'send' , component : MailingSendComponent, data: { title: 'Verzenden'}},
